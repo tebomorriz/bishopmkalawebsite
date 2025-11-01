@@ -3,7 +3,10 @@
 /* ==========================
 MAKING VARIABLES & BASICS
 ============================= */
-
+html,
+body {
+  overflow-x: hidden;
+}
 * {
   margin: 0;
   padding: 0;
@@ -1261,4 +1264,5 @@ Hero section .hero {
   background: #003366;
   color: white;
 }
+
 
