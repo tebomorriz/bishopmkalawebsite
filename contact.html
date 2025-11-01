@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Bishop Mkala Academy</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ========================
+              NAVBAR
+     =========================== -->
+    <nav>
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="/images/logo.png" alt="Bishop Mkala Academy Logo" />
+            <span>Bishop Mkala Academy</span>
+          </a>
+        </div>
+        <div class="grp">
+          <div class="navlist">
+            <li><a href="index.html#home">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="index.html#courses">courses</a></li>
+            <li><a href="index.html#blog">blog</a></li>
+            <li><a href="contact.html" class="active">contact</a></li>
+          </div>
+          <div class="user"><span class="lnr lnr-user"></span></div>
+          <div class="menu-btn"><span class="lnr lnr-menu"></span></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========================
+              CONTACT SECTION
+     =========================== -->
+    <section class="contact-page" id="contact">
+      <div class="title">
+        <h2>Get In Touch</h2>
+        <p>
+          We'd love to hear from you! Send us your feedback, inquiries, or
+          suggestions, and our team will respond shortly.
+        </p>
+      </div>
+
+      <div class="container contact-container">
+        <!-- Contact Info -->
+        <div class="content">
+          <div class="box">
+            <span class="lnr lnr-home"></span>
+            <div>
+              <h5>Our Location</h5>
+              <p>Changamwe, Mombasa — Hamisi Estate</p>
+            </div>
+          </div>
+          <div class="box">
+            <span class="lnr lnr-phone-handset"></span>
+            <div>
+              <h5>Call Us</h5>
+              <p>+254 700 000 000</p>
+            </div>
+          </div>
+          <div class="box">
+            <span class="lnr lnr-envelope"></span>
+            <div>
+              <h5>Email Us</h5>
+              <p>info@bmkala.com</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form (Formspree) -->
+        <form
+          action="https://formspree.io/f/xeoprvbg"
+          method="POST"
+          class="form"
+          id="contact-form"
+        >
+          <div class="form-input">
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="Enter subject"
+            required
+          />
+
+          <textarea
+            name="message"
+            cols="30"
+            rows="6"
+            placeholder="Enter your message"
+            required
+          ></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+
+          <p
+            id="feedback-message"
+            style="margin-top: 1rem; font-weight: 500"
+          ></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========================
+              FOOTER
+     =========================== -->
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="box">
+          <h5>About Bishop Mkala</h5>
+          <p>
+            Bishop Mkala Academy in Changamwe, Mombasa, is dedicated to
+            providing quality education rooted in Christian values. We nurture
+            academic excellence, creativity, and strong moral character in every
+            learner.
+          </p>
+        </div>
+        <div class="box">
+          <h5>Quick Links</h5>
+          <div class="nav">
+            <li><a href="index.html#home">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="index.html#courses">courses</a></li>
+            <li><a href="index.html#blog">blog</a></li>
+            <li><a href="contact.html">contact</a></li>
+          </div>
+        </div>
+        <div class="box contact-box">
+          <h5>Contact Info</h5>
+          <p>Changamwe, Mombasa — Hamisi Estate</p>
+          <span class="lnr lnr-phone">0700000000</span>
+          <span class="lnr lnr-envelope">info@bmkala.com</span>
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright">
+      <p>Copyright &copy; Samunjo Tech Solutions</p>
+    </div>
+
+    <!-- Optional Success Message -->
+    <script>
+      const form = document.getElementById("contact-form");
+      const feedback = document.getElementById("feedback-message");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        if (response.ok) {
+          feedback.textContent = "✅ Message sent successfully!";
+          form.reset();
+        } else {
+          feedback.textContent =
+            "❌ There was a problem sending your message. Please try again.";
+        }
+      });
+    </script>
+  </body>
+</html>
